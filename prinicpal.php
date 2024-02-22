@@ -16,23 +16,23 @@
             </header>
             <main>
                 <section class="seccion">
-                    <h2>Subtítulo 1</h2>
+                    <h2>Oferta educativa</h2>
                     <p>Texto de la sección 1.</p>
                 </section>
                 <section class="seccion">
-                    <h2>Subtítulo 2</h2>
+                    <h2>Curso</h2>
                     <p>Texto de la sección 2.</p>
                 </section>
                 <section class="seccion">
-                    <h2>Subtítulo 2</h2>
+                    <h2>Profesor</h2>
                     <p>Texto de la sección 2.</p>
                 </section>
                 <section class="seccion">
-                    <h2>Subtítulo 2</h2>
+                    <h2>Asignatura</h2>
                     <p>Texto de la sección 2.</p>
                 </section>
                 <section class="seccion">
-                    <h2>Subtítulo 2</h2>
+                    <h2>Horario</h2>
                     <p>Texto de la sección 2.</p>
                 </section>
             </main>

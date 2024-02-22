@@ -16,15 +16,17 @@
     padding:1em;
     position: absolute;
     left: 2.5%;
-    top: 20%;
+    top: 10%;
   }
 
   /* Cabecera */
   header {
+    width: 60%;
     border-radius:30rem;
     background-color: #337ab7;
     color: #fff;
     padding: 20px 30px;
+    margin: 0 auto;
     text-align: center;
   }
   
@@ -36,24 +38,33 @@
   
   /* Contenido principal */
   main {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
     padding: 30px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
   
   /* Secciones */
   .seccion {
     background-color: #fff;
     border-radius: 10px;
-    padding: 20px 30px;
+    padding: 1.5em 1em;
     margin-bottom: 20px;
   }
   
   .seccion h2 {
+    text-align: center;
     margin: 0;
     font-size: 20px;
     font-weight: bold;
   }
   
   .seccion1 p{
+    text-align: center;
     margin-top: 10px;
   }
   
