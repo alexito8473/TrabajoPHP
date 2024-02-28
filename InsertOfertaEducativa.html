@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Registro Oferta Educativa </h2>
+
+<form method="post" action="logicaOferta.php">
+    <label for="codOE">Codigo OE:</label><br>
+    <input type="text" id="codOE" name="codOE" pattern="[A-Za-z]{3}"  maxlength="3"><br>
+
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre"><br>
+
+    <label for="descripcion">Descripcion:</label><br>
+    <input type="text" id="descripcion" name="descripcion"><br>
+
+    <input type="radio" id="cfgs" name="grado" value="CFGS">
+    <label for="cfgs">CFGS</label><br>
+    <input type="radio" id="cfgm" name="grado" value="CFGM">
+    <label for="cfgm">CFGM</label><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

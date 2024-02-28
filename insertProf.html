@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+
+<h2>Formulario de Registro</h2>
+
+<form action="logicaprof.php" method="post">
+    <div>
+        <label for="cod_prof">Código de Profesor (Máximo 3 letras):</label><br>
+        <input type="text" id="cod_prof" name="cod_prof" pattern="[A-Za-z]{3}"  maxlength="3" required>
+    </div>
+    <br>
+    <div>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required>
+    </div>
+    <br>
+    <div>
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" id="apellido" name="apellido" required>
+    </div>
+    <br>
+    <div>
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label><br>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+    </div>
+    <br>
+    <input type="submit" value="Enviar">
+</form>
+
+</body>
+</html>
