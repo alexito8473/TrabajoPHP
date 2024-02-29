@@ -8,7 +8,7 @@ if (isset($_REQUEST['cod_prof'], $_REQUEST['nombre'], $_REQUEST['apellido'], $_R
     $database = new Medoo([
         'database_type' => 'mysql',
         'database_name' => 'horario',
-        'server' => 'localhost',
+        'server' => 'localhost:3307',
         'username' => 'root',
         'password' => ''
     ]);

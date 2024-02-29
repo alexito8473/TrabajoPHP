@@ -5,7 +5,7 @@ use Medoo\Medoo;
 $database = new Medoo([
     'database_type' => 'mysql',
     'database_name' => 'horario',
-    'server' => 'localhost',
+    'server' => 'localhost:3307',
     'username' => 'root',
     'password' => ''
 ]);
