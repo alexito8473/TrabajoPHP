@@ -95,3 +95,36 @@ th{
 footer p {
   font-size: calc(1rem + 1vw);
 }
+.Mostrar{
+  margin-top: 1em;
+}
+.Mostrar div{
+  width: 20%;
+  border-radius: 2em;
+  background-color: grey;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.Mostrar div form {
+ margin: 1em auto;
+}
+.Mostrar div form div {
+  width: 100%;
+  font-size: 2em;
+}
+.Mostrar div form div div {
+  display: flex;
+  flex-direction: row;
+}
+.Mostrar div form div div p{
+  font-size: 0.5em;
+}
+.Mostrar div form input{
+  margin: 1em 0;
+  border-radius: 1em;
+  text-align: center;
+  padding: 0.4em;
+}

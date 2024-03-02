@@ -37,11 +37,48 @@
                                     "ofertaeducativa",
                                     "*"
                                 );
-                                mostrarTablaOferta($resultado,"ofertaeducativa");
+                                mostrarTablaOferta($resultado);
                             } catch (Exception) {
                                 echo "<br><h2><b>NO PUDO CONECTARSE</b></h2>";
                             }         
                      ?>
+                </section>
+                <section class="Mostrar">
+                    <div>
+                    <?php
+                        if(!empty($_GET) && isset($_GET)){
+                            if (!empty($_GET["editar"]) && isset($_GET["editar"])) {
+                                $resultado = $database->select(
+                                    "ofertaeducativa",
+                                    "*",
+                                    ["codOe[=]" => $_GET["cod1"],"fechaActa[=]"=>$_GET["cod2"]]
+                                );
+                                    echo "<form action=\"logicaOfertaEdiBorra.php\" method=\"get\">
+                                    <input type=\"text\"  hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\">
+                                    <input hidden=true type=\"text\" value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\">
+                                    <div>
+                                        <p>Nombre</p><input type=\"text\" value=\"".$resultado[0]["nombre"]."\" name=\"nombre\">
+                                    </div>
+                                    <div>
+                                        <p>Descripcion</p><input type=\"text\" value=\"".$resultado[0]["descripcion"]."\" name=\"descripcion\">
+                                    </div>
+                                    <div>
+                                        <p>Tipo</p><div><input type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
+                                        <div><input type=\"radio\" name=\"tipo\" value=\"CFGM\" /><p>CFGM</p></div>
+                                    </div>
+                                    <div>
+                                        <p>Fecha Ley</p><input type=\"text\" value=\"".$resultado[0]["fechaLey"]."\"  name=\"fechaLey\">
+                                    </div>
+                                    <input class=\"saltar\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\">
+                                    </form>";
+                            } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
+
+                            }else{
+                                echo $_GET["mesaje"];
+                            }
+                        }
+                     ?>
+                     </div>
                 </section>
             </main>
             <footer>
