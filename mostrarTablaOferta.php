@@ -11,7 +11,7 @@
 <body>
     <header>
         <div>
-            <h1>Mostrar tabla</h1>
+            <h1>Mostrar tabla oferta educativa</h1>
         </div>
     </header>
     <div class="separador">
@@ -53,7 +53,7 @@
                                     "*",
                                     ["codOe[=]" => $_GET["cod1"],"fechaActa[=]"=>$_GET["cod2"]]
                                 );
-                                    echo "<form action=\"logicaOfertaEdiBorra.php\" method=\"get\">
+                                    echo "<form action=\"mostrarTablaOferta.php\" method=\"get\">
                                     <input type=\"text\"  hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\">
                                     <input hidden=true type=\"text\" value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\">
                                     <div>
@@ -62,19 +62,26 @@
                                     <div>
                                         <p>Descripcion</p><input type=\"text\" value=\"".$resultado[0]["descripcion"]."\" name=\"descripcion\">
                                     </div>
-                                    <div>
-                                        <p>Tipo</p><div><input type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
+                                    <div>";
+                                    if($resultado[0]["tipo"]=="CFGS"){
+                                        echo "<p>Tipo</p><div><input checked type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
                                         <div><input type=\"radio\" name=\"tipo\" value=\"CFGM\" /><p>CFGM</p></div>
-                                    </div>
-                                    <div>
+                                    </div>";
+                                    }else{
+                                        echo "<p>Tipo</p><div><input type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
+                                        <div><input checked type=\"radio\" name=\"tipo\" value=\"CFGM\" /><p>CFGM</p></div>
+                                    </div>";
+                                    }
+                                    echo"<div>
                                         <p>Fecha Ley</p><input type=\"text\" value=\"".$resultado[0]["fechaLey"]."\"  name=\"fechaLey\">
                                     </div>
-                                    <input class=\"saltar\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\">
+                                    <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
+
                                     </form>";
                             } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
 
                             }else{
-                                echo $_GET["mesaje"];
+                              //  echo $_GET["mesaje"];
                             }
                         }
                      ?>
