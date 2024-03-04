@@ -9,9 +9,12 @@ $database = new Medoo([
     'username' => 'root',
     'password' => ''
 ]);
+
 if (!isset($_POST['codOE'], $_POST['nombre'], $_POST['descripcion'], $_POST['grado']) ||
     empty($_POST['codOE']) || empty($_POST['nombre']) || empty($_POST['descripcion']) || empty($_POST['grado'])) {
-    header('Location: insertofertaEducativa.html');
+
+    header("Location: error.php?tipoError=Todos los campos son requeridos&destino=insertofertaEducativa.html");
+
     exit;
 }
 
@@ -20,11 +23,10 @@ $nombre = $_POST['nombre'];
 $descripcion = $_POST['descripcion'];
 $grado = $_POST['grado'];
 if ($database->has('ofertaeducativa', ['codOE' => $codOE])) {
-        echo  "Error clave duplicada ";
-        echo ' <a href="InsertOfertaEducativa.html">Volver</a>';
-
+    header("Location: error.php?tipoError=Error clave duplicada&destino=InsertOfertaEducativa.html");
     exit;
-    }
+}
+
 $id = $database->insert('ofertaeducativa', [
     'codOE' => $codOE,
     'nombre' => $nombre,
@@ -33,8 +35,9 @@ $id = $database->insert('ofertaeducativa', [
 ]);
 
 if ($id) {
-    echo "Se ha insertado correctamente";
+    header("Location: success.php?mensaje=Se ha insertado correctamente la oferta educativa&destino=insertofertaEducativa.html");
+    exit;
 } else {
-    echo "Error: " . $database->error()[2];
+    header("Location: error.php?tipoError=Error: " . $database->error()[2] . "&destino=insertofertaEducativa.html");
+    exit;
 }
-?>

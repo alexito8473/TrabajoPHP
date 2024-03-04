@@ -14,11 +14,16 @@ if (isset($_REQUEST['cod_prof'], $_REQUEST['nombre'], $_REQUEST['apellido'], $_R
     ]);
 
     $fecha_nacimiento = $_REQUEST['fecha_nacimiento'];
+    $cod_prof = $_REQUEST['cod_prof'];
+    $profesor_existente = $database->select('profesor', ['codprof'], ['codprof' => $cod_prof]);
 
-    if (strtotime($fecha_nacimiento) > time()) {
-        die('Error: La fecha de nacimiento no puede ser futura.');
+    if (!empty($profesor_existente)) {
+        header("Location: error.php?tipoError=Error: Profesor ya existente&destino=insertProf.html");
+        exit;
+    } elseif (strtotime($fecha_nacimiento) > time()) {
+        header("Location: error.php?tipoError=Error: La fecha de nacimiento no puede ser futura&destino=insertProf.html");
+        exit;
     } else {
-        $cod_prof = $_REQUEST['cod_prof'];
         $nombre = $_REQUEST['nombre'];
         $apellido = $_REQUEST['apellido'];
 
@@ -31,10 +36,10 @@ if (isset($_REQUEST['cod_prof'], $_REQUEST['nombre'], $_REQUEST['apellido'], $_R
 
         $database->insert('profesor', $datos_insertar);
 
-        echo "Datos insertados correctamente.";
+        header("Location: success.php?mensaje=Datos insertados correctamente&destino=insertProf.html");
+        exit;
     }
 } else {
-    header("Location: insertProf.html");
+    header("Location: error.php?tipoError=Todos los campos son requeridos&destino=insertProf.html");
     exit;
 }
-?>

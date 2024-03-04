@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styleform.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body class="container">
+<h1>Registro horario</h1>
+<form method="post" action="logicaHora.php">
+    <label for="codOe">Código OE:</label>
+    <input type="text" id="codOe" name="codOe" maxlength="3" required>
+
+    <label for="codCurso">Código del Curso:</label>
+    <input type="text" id="codCurso" name="codCurso" maxlength="2" required>
+
+    <label for="codAsig">Código de Asignatura:</label>
+    <input type="text" id="codAsig" name="codAsig" maxlength="6" required>
+
+    <label for="codTramo">Código de Tramo:</label>
+    <input type="text" id="codTramo" name="codTramo" maxlength="2" required>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

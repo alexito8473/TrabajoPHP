@@ -3,7 +3,6 @@ require 'Medoo.php';
 
 use Medoo\Medoo;
 
-// Initialize
 $database = new Medoo([
     'database_type' => 'mysql',
     'database_name' => 'horario',
@@ -15,30 +14,29 @@ $database = new Medoo([
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!isset($_POST['codOe'], $_POST['codcurso'], $_POST['codtutor']) ||
         empty($_POST['codOe']) || empty($_POST['codcurso']) || empty($_POST['codtutor'])) {
-        echo "Error: Todos los campos son requeridos";
+        header("Location: error.php?tipoError=Todos los campos son requeridos&destino=insertCurso.html");
         exit;
     }
 
     $codOe = $_POST['codOe'];
     $codcurso = $_POST['codcurso'];
     $codtutor = $_POST['codtutor'];
+if ($database->count('curso', ['codtutor' => $codtutor]) > 0) {
+    header("Location: error.php?tipoError=Este profesor ya es tutor de un curso&destino=insertCurso.html");
+    exit;
+}
     if ($database->has('curso', ['codcurso' => $codcurso])) {
-        echo "Error: El curso ya existe en la base de datos";
-        echo ' <a href="insertCurso.html">Volver</a>';
+        header("Location: error.php?tipoError=El curso ya existe en la base de datos&destino=insertCurso.html");
+        exit;
     } else if (!$database->has('profesor', ['codprof' => $codtutor])) {
-        echo "Error: El tutor no existe en la base de datos";
-        echo ' <a href="insertCurso.html">Volver</a>';
-
-
+        header("Location: error.php?tipoError=El tutor no existe en la base de datos&destino=insertCurso.html");
+        exit;
     } elseif (!$database->has('ofertaeducativa', ['codOe' => $codOe])) {
-        echo "Error: La oferta educativa no existe en la base de datos";
-        echo ' <a href="insertCurso.html">Volver</a>';
-
+        header("Location: error.php?tipoError=La oferta educativa no existe en la base de datos&destino=insertCurso.html");
+        exit;
     } else {
-
         $fechaacta = $database->get('ofertaeducativa', 'fechaacta', ['codOe' => $codOe]);
         $codOe1 = $database->get('ofertaeducativa', 'codOe', ['codOe' => $codOe]);
-
         $id = $database->insert('curso', [
             'codOe' => $codOe,
             'fechaacta' => $fechaacta,
@@ -47,12 +45,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
 
         if ($id) {
-            echo "Se ha insertado correctamente en BD ";
+            header("Location: success.php?mensaje=Se ha insertado correctamente en BD&destino=insertCurso.html");
+            exit;
         } else {
-            echo "Error: Ese tutor esta duplicado";
+            header("Location: error.php?tipoError=Error: Ese tutor está duplicado&destino=insertCurso.html");
+            exit;
         }
     }
 }
-
-
-?>

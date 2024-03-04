@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+    <link rel="stylesheet" href="styleform.css">
+</head>
+<body class="container">
 
-<h2>Registro Oferta Educativa</h2>
+<h1>Registro Oferta Educativa</h1>
 
 <form method="post" action="logicaOferta.php">
     <label for="codOE">Codigo OE:</label><br>
@@ -13,10 +16,10 @@
 
     <label for="descripcion">Descripcion:</label><br>
     <input type="text" id="descripcion" name="descripcion"><br>
-
+    <label>Elige grado:</label><br>
     <input type="radio" id="cfgs" name="grado" value="CFGS">
-    <label for="cfgs">CFGS</label><br>
-    <input type="radio" id="cfgm" name="grado" value="CFGM">
+    <label for="cfgs">CFGS</label>
+    <input type="radio" id="cfgm" checked name="grado" value="CFGM">
     <label for="cfgm">CFGM</label><br>
 
     <input type="submit" value="Submit">

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styleform.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styleform.css">
+</head>
+
+<body class="container">
+<h1>Registro Asignatura</h1>
+<form method="post" action="logicaAsig.php">
+    <label for="codAsig">Codigo Asignatura:</label><br>
+    <input type="text" id="codAsig" name="codAsig" maxlength="6" ><br>
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre"><br>
+
+    <label for="horaSem">Horas semanales</label><br>
+    <input type="number" id="horaSem" name="horaSem" min="0" max="999"><br>
+
+    <label for="horatot">Hora Totales:</label><br>
+    <input type="number" id="horatot" name="horatot" min="0" max="99999"><br>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
