@@ -53,7 +53,7 @@
                     <h2>Profesor</h2>
                     <p>Un profesor es un guía, un facilitador y un modelo a seguir en el proceso educativo. Más allá de transmitir conocimientos, un buen profesor inspira, motiva y desafía a sus estudiantes a alcanzar su máximo potencial.</p>
                     <div class="form1">
-                        <form action="mostrarTablaOferta.php" method="get"><input class="saltar" type="submit"
+                        <form action="mostrarTablaProfesor.php" method="get"><input class="saltar" type="submit"
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">
@@ -66,7 +66,7 @@
                     <h2>Asignatura</h2>
                     <p>Una asignatura es una unidad específica de estudio dentro de un plan de estudios, diseñada para abordar un área temática particular. Cada asignatura tiene objetivos de aprendizaje definidos y está estructurada para desarrollar competencias y habilidades específicas en los estudiantes. </p>
                     <div class="form1">
-                        <form action="mostrarTablaOferta.php" method="get"><input class="saltar" type="submit"
+                        <form action="mostrarTablaAsignatura.php" method="get"><input class="saltar" type="submit"
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">

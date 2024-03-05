@@ -123,7 +123,7 @@ input{
 
 .form2 form input {
   transition: all .4s;
-  background-color: #559fd7;
+  background-color: #1845ad;
 }
 
 .form2 form input:hover {
@@ -135,8 +135,6 @@ input{
 div {
   grid-area: div;
 }
-
-
 p {
   grid-area: p;
 }

@@ -77,4 +77,125 @@ function mostrarTablaOferta($resultado){
     }
     echo "</table>";
 }
+
+function mostrarTablaProfesor($resultado){
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>";
+    echo "Codigo del profesor";
+    echo "</th>";
+    echo "<th>";
+    echo "Nombre del profesor";
+    echo "</th>";
+    echo "<th>";
+    echo "Apellidos";
+    echo "</th>";
+    echo "<th>";
+    echo "fecha de alta";
+    echo "</th>";
+    echo "<th>";
+    echo "Editar";
+    echo "</th>";
+    echo "<th>";
+    echo "Borrar";
+    echo "</th>";
+    echo "</tr>";
+    foreach ($resultado as $key => $row) {
+        echo "<tr>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["codProf"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["nombre"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["apellidos"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["fechaAlta"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";        
+        echo "<form action=\"mostrarTablaProfesor.php\" method=\"get\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["codProf"]."\" name=\"cod1\">
+        <input class=\"saltar\" type=\"submit\" name=\"editar\" value=\"Editar\">
+        </form>";
+        echo "</td>";
+        echo "<td>";        
+        echo "<form action=\"mostrarTablaProfesor.php\" method=\"get\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["codProf"]."\" name=\"cod1\">
+        <input class=\"saltar\" type=\"submit\" name=\"borrar\" value=\"Borrar\">
+        </form>";
+        echo "</td>";
+        echo "</tr>"; 
+    }
+    echo "</table>";
+}
+function mostrarTablaAsignatura($resultado){
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>";
+    echo "Codigo asignatura";
+    echo "</th>";
+    echo "<th>";
+    echo "Nombre";
+    echo "</th>";
+    echo "<th>";
+    echo "Horas semanales";
+    echo "</th>";
+    echo "<th>";
+    echo "Horas totales";
+    echo "</th>";
+    echo "<th>";
+    echo "Editar";
+    echo "</th>";
+    echo "<th>";
+    echo "Borrar";
+    echo "</th>";
+    echo "</tr>";
+    foreach ($resultado as $key => $row) {
+        echo "<tr>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["codAsig"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["nombre"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["horasSemanales"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["horasTotales"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";        
+        echo "<form action=\"mostrarTablaAsignatura.php\" method=\"get\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["codAsig"]."\" name=\"cod1\">
+        <input class=\"saltar\" type=\"submit\" name=\"editar\" value=\"Editar\">
+        </form>";
+        echo "</td>";
+        echo "<td>";        
+        echo "<form action=\"mostrarTablaAsignatura.php\" method=\"get\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["codAsig"]."\" name=\"cod1\">
+        <input class=\"saltar\" type=\"submit\" name=\"borrar\" value=\"Borrar\">
+        </form>";
+        echo "</td>";
+        echo "</tr>"; 
+    }
+    echo "</table>";
+}
 ?>

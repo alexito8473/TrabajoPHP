@@ -2,18 +2,17 @@
  require "metodo.php";
  require('Medoo.php');
  use Medoo\Medoo;
-$database = new Medoo([
+ $database = new Medoo([
              'database_type' => 'mysql',
              'database_name' => 'horario',
              'server' => 'localhost:3307',
              'username' => 'root',
              'password' => ''
              ]);
-$resultado = $database->select("ofertaeducativa","*");
+$resultado = $database->select("profesor","*");
 if(count($resultado) == 0){
-    header("Location: error.php?tipoError=No hay registros, introduce alguno&destino=insertofertaEducativa.html");
-}
-    
+    header("Location: error.php?tipoError=No hay registros, introduce alguno&destino=insertProf.html");
+}  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,12 +20,12 @@ if(count($resultado) == 0){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleMostratTabla.css">
-    <title>Document</title>
+    <title>Tabla profesor</title>
 </head>
 <body>
     <header>
         <div>
-            <h1>Mostrar tabla oferta educativa</h1>
+            <h1>Mostrar tabla profesor</h1>
         </div>
     </header>
     <div class="separador">
@@ -40,10 +39,10 @@ if(count($resultado) == 0){
                     <?php
                             try {
                                 $resultado = $database->select(
-                                    "ofertaeducativa",
+                                    "profesor",
                                     "*"
                                 );
-                                mostrarTablaOferta($resultado);
+                                mostrarTablaProfesor($resultado);
                             } catch (Exception) {
                                 echo "<br><h2><b>Fallo en la conexion con la base de datos</b></h2>";
                             }         
@@ -55,32 +54,20 @@ if(count($resultado) == 0){
                         if(!empty($_GET) && isset($_GET)){
                             if (!empty($_GET["editar"]) && isset($_GET["editar"])) {
                                 $resultado = $database->select(
-                                    "ofertaeducativa",
+                                    "profesor",
                                     "*",
-                                    ["codOe[=]" => $_GET["cod1"],"fechaActa[=]"=>$_GET["cod2"]]
+                                    ["codProf[=]" => $_GET["cod1"]]
                                 );
-                                    echo "<form action=\"mostrarTablaOferta.php\" method=\"get\">
-                                    <input type=\"text\"  hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\" required>
-                                    <input hidden=true type=\"text\" value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\" pattern=\"[A-Za-z]{3}\"  maxlength=\"3\" required>
+                                    echo "<form action=\"mostrarTablaProfesor.php\" method=\"get\">
+                                    <input type=\"text\"  hidden=true value=\"".$resultado[0]["codProf"]."\" name=\"cod1\">
                                     <div>
                                         <p>Nombre</p><input type=\"text\" value=\"".$resultado[0]["nombre"]."\" name=\"nombre\" required>
                                     </div>
                                     <div>
-                                        <p>Descripcion</p><input type=\"text\" value=\"".$resultado[0]["descripcion"]."\" name=\"descripcion\" required>
+                                        <p>Apellidos</p><input type=\"text\" value=\"".$resultado[0]["apellidos"]."\" name=\"descripcion\" required>
                                     </div>
                                     <div>
-                                    <p>Tipo</p><div>";
-                                    if($resultado[0]["tipo"]=="CFGS"){
-                                        echo "<div><input checked type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
-                                        <div><input type=\"radio\" name=\"tipo\" value=\"CFGM\" /><p>CFGM</p></div>
-                                    </div>";
-                                    }else{
-                                        echo "<div><input type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
-                                        <div><input checked type=\"radio\" name=\"tipo\" value=\"CFGM\" /><p>CFGM</p></div>
-                                    </div>";
-                                    }
-                                    echo"</div><div>
-                                        <p>Fecha Ley</p><input type=\"text\" value=\"".$resultado[0]["fechaLey"]."\"  name=\"fechaLey\" required>
+                                        <p>Fecha Alta</p><input type=\"date\" value=\"".$resultado[0]["fechaAlta"]."\"  name=\"fechaLey\" required>
                                     </div>
                                     <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
 
@@ -102,9 +89,7 @@ if(count($resultado) == 0){
     </footer>
     </div>
     <div>
-
     </div>
- 
 </body>
 
 </html>
