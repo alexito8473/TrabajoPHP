@@ -1,13 +1,28 @@
+<?php
+ require "metodo.php";
+ require('Medoo.php');
+ use Medoo\Medoo;
+$database = new Medoo([
+             'database_type' => 'mysql',
+             'database_name' => 'horario',
+             'server' => 'localhost:3307',
+             'username' => 'root',
+             'password' => ''
+             ]);
+$resultado = $database->select("ofertaeducativa","*");
+if(count($resultado) == 0){
+    header("Location: error.php?tipoError=No hay registros, introduce alguno&destino=insertofertaEducativa.html");
+}
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleMostratTabla.css">
     <title>Document</title>
 </head>
-
 <body>
     <header>
         <div>
@@ -18,20 +33,11 @@
         <div class="container">
             <main>
                 <section class="anadir">
-                    <form method="post" action="logicaOferta.php"><input type="submit" value="Añadir una nueva fila"></form>
+                    <form method="post" action="logicaOferta.php"><input type="submit" value="Añadir nuevo registro"></form>
+                    <form method="post" action="prinicpal.php"><input type="submit" value="Menu principal"></form>
                 </section>
                 <section class="tabla">
                     <?php
-                    require "metodo.php";
-                    require('Medoo.php');
-                    use Medoo\Medoo;
-                            $database = new Medoo([
-                                'database_type' => 'mysql',
-                                'database_name' => 'horario',
-                                'server' => 'localhost:3307',
-                                'username' => 'root',
-                                'password' => ''
-                            ]);
                             try {
                                 $resultado = $database->select(
                                     "ofertaeducativa",
@@ -39,7 +45,7 @@
                                 );
                                 mostrarTablaOferta($resultado);
                             } catch (Exception) {
-                                echo "<br><h2><b>NO PUDO CONECTARSE</b></h2>";
+                                echo "<br><h2><b>Fallo en la conexion con la base de datos</b></h2>";
                             }         
                      ?>
                 </section>
@@ -62,17 +68,18 @@
                                     <div>
                                         <p>Descripcion</p><input type=\"text\" value=\"".$resultado[0]["descripcion"]."\" name=\"descripcion\">
                                     </div>
-                                    <div>";
+                                    <div>
+                                    <p>Tipo</p><div>";
                                     if($resultado[0]["tipo"]=="CFGS"){
-                                        echo "<p>Tipo</p><div><input checked type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
+                                        echo "<div><input checked type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
                                         <div><input type=\"radio\" name=\"tipo\" value=\"CFGM\" /><p>CFGM</p></div>
                                     </div>";
                                     }else{
-                                        echo "<p>Tipo</p><div><input type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
+                                        echo "<div><input type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
                                         <div><input checked type=\"radio\" name=\"tipo\" value=\"CFGM\" /><p>CFGM</p></div>
                                     </div>";
                                     }
-                                    echo"<div>
+                                    echo"</div><div>
                                         <p>Fecha Ley</p><input type=\"text\" value=\"".$resultado[0]["fechaLey"]."\"  name=\"fechaLey\">
                                     </div>
                                     <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
@@ -88,11 +95,16 @@
                      </div>
                 </section>
             </main>
-            <footer>
-                <p>Hecho por Alejandro Aguilar y Cristian Gil</p>
-            </footer>
+
         </div>
+        <footer>
+                <p>Hecho por Alejandro Aguilar y Cristian Gil</p>
+    </footer>
     </div>
+    <div>
+
+    </div>
+ 
 </body>
 
 </html>

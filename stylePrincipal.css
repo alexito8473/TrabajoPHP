@@ -13,21 +13,20 @@ body {
 .separador {
   background-color: rgba(255, 255, 255, 0.13);
   border-radius: 2rem;
-  width: 95%;
+  width: 98%;
   padding: 0.5em;
   position: absolute;
-  left: 2.5%;
+  left: 1%;
   top: 13%;
 }
 
 /* Cabecera */
 header {
-  min-height: 80px;
+  min-height: calc(3.2rem + 1vw);
   position: fixed;
-  width: 97%;
+  width: 100%;
   z-index: 1;
-  left: 1.5%;
-  border-radius: 1.5rem;
+  left: 0%;
   background-color: #337ab7;
   color: #fff;
   height: 12vh;
@@ -74,12 +73,12 @@ h2{
   padding: 1.5em 1em;
   margin-bottom: 20px;
   grid-template-rows: 15% 45% 20% 20%;
-  grid-template-columns: auto auto 3fr;
+  grid-template-columns: auto auto auto auto;
   grid-template-areas:
-    "div div h2"
-    "div div p"
-    "div div f1"
-    ". . f2";
+    "div div h2 h2"
+    "div div p p"
+    "div div f1 f2"
+    ". . . .";
 }
 
 .seccion div {
@@ -95,19 +94,23 @@ h2{
 }
 
 input{
+  transition: all 0.5s;
   color: black;
   font-weight: bolder;
-  padding: 0.7rem;
-  border-radius: 2em;
-  font-size: calc(0.6rem + 0.5vw);
+  width: calc(12em + 0.6vw);
+  height: calc(3rem + 0.5vh);
+  border-radius: 3em;
+  font-size: calc(0.8rem + 0.5vw);
 }
 .form1 form input {
+  transition: all .4s;
   background-color: orange;
 }
 
 .form1 form input:hover {
   background-color: black;
   color: orange;
+  scale: 1.1;
 }
 
 .form2 {
@@ -115,15 +118,18 @@ input{
   justify-content: center;
   align-items: center;
   grid-area: f2;
+  
 }
 
 .form2 form input {
+  transition: all .4s;
   background-color: #559fd7;
 }
 
 .form2 form input:hover {
   background-color: black;
   color: #559fd7;
+  scale: 1.1;
 }
 
 div {

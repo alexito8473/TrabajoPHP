@@ -45,11 +45,12 @@ form {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    border-radius: 10px;
+    border-radius: 20px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 50px 35px;
+    transition: all .5s;
 }
 
 form * {
@@ -67,6 +68,10 @@ form h3 {
     text-align: center;
 }
 
+form:hover{
+    height: 530px;
+    width: 410px;
+}
 label {
     display: block;
     margin-top: 30px;
@@ -100,31 +105,8 @@ button {
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+    transition: all .5s;
 }
-
-.social {
-    margin-top: 30px;
-    display: flex;
-}
-
-.social div {
-    background: red;
-    width: 150px;
-    border-radius: 3px;
-    padding: 5px 10px 10px 5px;
-    background-color: rgba(255, 255, 255, 0.27);
-    color: #eaf0fb;
-    text-align: center;
-}
-
-.social div:hover {
-    background-color: rgba(255, 255, 255, 0.47);
-}
-
-.social.fb {
-    margin-left: 25px;
-}
-
-.social i {
-    margin-right: 4px;
+button:hover{
+    background-color: #f09819;
 }
