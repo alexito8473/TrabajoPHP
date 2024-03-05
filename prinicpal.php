@@ -28,7 +28,7 @@
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">
-                        <form action="logicaOferta.php" method="get"><input class="saltar" type="submit"
+                        <form action="InsertOfertaEducativa.html" method="get"><input class="saltar" type="submit"
                                 name="añadirOferta" value="Añadir"></form>
                     </div>
                 </section>
@@ -40,11 +40,11 @@
                         manera independiente. Los cursos están estructurados para proporcionar un enfoque coherente y
                         sistemático de aprendizaje sobre un tema específico</p>
                         <div class="form1">
-                        <form action="mostrarTablaOferta.php" method="get"><input class="saltar" type="submit"
+                        <form action="mostrarTablaCurso.php" method="get"><input class="saltar" type="submit"
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">
-                        <form action="logicaCurso.php" method="get"><input class="saltar" type="submit"
+                        <form action="insertCurso.html" method="get"><input class="saltar" type="submit"
                                 name="añadirOferta" value="Añadir"></form>
                     </div>
                 </section>
@@ -57,7 +57,7 @@
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">
-                        <form action="logicaprof.php" method="get"><input class="saltar" type="submit"
+                        <form action="insertProf.html" method="get"><input class="saltar" type="submit"
                                 name="añadirOferta" value="Añadir"></form>
                     </div>
                 </section>
@@ -70,7 +70,7 @@
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">
-                        <form action="logicaAsig.php" method="get"><input class="saltar" type="submit"
+                        <form action="insertAsig.html" method="get"><input class="saltar" type="submit"
                                 name="añadirOferta" value="Añadir"></form>
                     </div>
                 </section>
@@ -79,11 +79,11 @@
                     <h2>Horario</h2>
                     <p>Los horarios educativos son como mapas que guían el día a día de estudiantes y profesores en su jornada de aprendizaje. Estos horarios asignan bloques de tiempo para actividades académicas, desde clases y conferencias hasta periodos de estudio independiente y descansos.</p>
                     <div class="form1">
-                        <form action="mostrarTablaOferta.php" method="get"><input class="saltar" type="submit"
+                        <form action="mostrarTablaHorario.php" method="get"><input class="saltar" type="submit"
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">
-                        <form action="logicaHora.php" method="get"><input class="saltar" type="submit"
+                        <form action="insertHorario.html" method="get"><input class="saltar" type="submit"
                                 name="añadirOferta" value="Añadir"></form>
                     </div>
                 </section>
@@ -93,11 +93,11 @@
                     <p>
 Los tramos horarios son segmentos de tiempo específicos que se utilizan para organizar actividades, eventos o servicios según su duración, importancia o conveniencia.</p>
                     <div class="form1">
-                        <form action="mostrarTablaOferta.php" method="get"><input class="saltar" type="submit"
+                        <form action="mostrarTablaTramo.php" method="get"><input class="saltar" type="submit"
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">
-                        <form action="logicaTramoHorario.php" method="get"><input class="saltar" type="submit"
+                        <form action="insertTramo.html" method="get"><input class="saltar" type="submit"
                                 name="añadirOferta" value="Añadir"></form>
                     </div>
                 </section>

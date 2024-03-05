@@ -142,16 +142,16 @@ function mostrarTablaAsignatura($resultado){
     echo "<table>";
     echo "<tr>";
     echo "<th>";
-    echo "Codigo asignatura";
+    echo "Código asignatura";
     echo "</th>";
     echo "<th>";
-    echo "Nombre";
+    echo "horario inicio";
     echo "</th>";
     echo "<th>";
-    echo "Horas semanales";
+    echo "Horas fin";
     echo "</th>";
     echo "<th>";
-    echo "Horas totales";
+    echo "Dia";
     echo "</th>";
     echo "<th>";
     echo "Editar";
@@ -191,6 +191,122 @@ function mostrarTablaAsignatura($resultado){
         echo "<td>";        
         echo "<form action=\"mostrarTablaAsignatura.php\" method=\"get\">
         <input type=\"text\" hidden=\"true\" value=\"".$row["codAsig"]."\" name=\"cod1\">
+        <input class=\"saltar\" type=\"submit\" name=\"borrar\" value=\"Borrar\">
+        </form>";
+        echo "</td>";
+        echo "</tr>"; 
+    }
+    echo "</table>";
+}
+
+function mostrarTablaTramo($resultado){
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>";
+    echo "Codigo tramo";
+    echo "</th>";
+    echo "<th>";
+    echo "Horario inicio";
+    echo "</th>";
+    echo "<th>";
+    echo "Horario fin";
+    echo "</th>";
+    echo "<th>";
+    echo "Dia";
+    echo "</th>";
+    echo "<th>";
+    echo "Borrar";
+    echo "</th>";
+    echo "</tr>";
+    foreach ($resultado as $key => $row) {
+        echo "<tr>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["codTramo"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["horaInicio"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["horaFin"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["dia"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";        
+        echo "<form action=\"mostrarTablaTramo.php\" method=\"get\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["codTramo"]."\" name=\"cod1\">
+        <input class=\"saltar\" type=\"submit\" name=\"borrar\" value=\"Borrar\">
+        </form>";
+        echo "</td>";
+        echo "</tr>"; 
+    }
+    echo "</table>";
+}
+function mostrarTablaCurso($resultado){
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>";
+    echo "Codigo oferta";
+    echo "</th>";
+    echo "<th>";
+    echo "Fecha Acta";
+    echo "</th>";
+    echo "<th>";
+    echo "Código del curso";
+    echo "</th>";
+    echo "<th>";
+    echo "Código del tutor";
+    echo "</th>";
+    echo "<th>";
+    echo "Editar";
+    echo "</th>";
+    echo "<th>";
+    echo "Borrar";
+    echo "</th>";
+    echo "</tr>";
+    foreach ($resultado as $key => $row) {
+        echo "<tr>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["codOe"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["fechaActa"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["codCurso"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";
+        echo "<p>";
+        echo $row["codTutor"];
+        echo "</p>";
+        echo "</td>";
+        echo "<td>";        
+        echo "<form action=\"mostrarTablaCurso.php\" method=\"get\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["codOe"]."\" name=\"cod1\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["fechaActa"]."\" name=\"cod2\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["codCurso"]."\" name=\"cod3\">
+        <input class=\"saltar\" type=\"submit\" name=\"editar\" value=\"Editar\">
+        </form>";
+        echo "</td>";
+        echo "<td>";        
+        echo "<form action=\"mostrarTablaCurso.php\" method=\"get\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["codOe"]."\" name=\"cod1\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["fechaActa"]."\" name=\"cod2\">
+        <input type=\"text\" hidden=\"true\" value=\"".$row["codCurso"]."\" name=\"cod3\">
         <input class=\"saltar\" type=\"submit\" name=\"borrar\" value=\"Borrar\">
         </form>";
         echo "</td>";
