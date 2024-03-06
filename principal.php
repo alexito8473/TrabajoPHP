@@ -22,6 +22,9 @@ if(isset($_SESSION["inicioSesion"])){
     <header>
         <div>
             <h1>Panel de control</h1>
+            <form action="logicaDestruir.php" method="post">
+                <input class="borrar" type="submit" name="destruir" value="Cerrar sesión">
+            </form>
         </div>
     </header>
     <div class="separador">
