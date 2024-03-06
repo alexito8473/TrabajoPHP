@@ -1,4 +1,12 @@
 <?php
+session_start();
+if(isset($_SESSION["inicioSesion"])){
+    if(!$_SESSION["inicioSesion"]){
+        header("Location: index.php?mensaje=Debes iniciar sesión");
+    }
+}else{
+    header("Location: index.php?mensaje=Debes iniciar sesión");
+}
 function mostrarTablaOferta($resultado){
     echo "<table>";
     echo "<tr>";
