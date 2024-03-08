@@ -111,7 +111,7 @@ footer p {
 .Mostrar div{
 transition: all 0.5s;
 }
-.Mostrar div:nth-child(1):hover{
+.Mostrar div:hover{
   scale: 1.1;
 }
 .Mostrar div{
@@ -154,10 +154,6 @@ transition: all 0.5s;
   background-color:black;
   color: white;
 }
-.saltar{
-  background-color: #2f2fc5;
-  color: white;
-}
 .anadir input:hover{
   background-color: black;
   scale: 1.11;
@@ -166,4 +162,35 @@ transition: all 0.5s;
   background-color: #2f2fc5;
   color: white;
   border-color: transparent;
+}
+.editar,.borrar{
+  transition: all 1.3s;
+  width: 90%;
+  padding: 1em;
+  border-radius: 1em;
+}
+.editar{
+  background-color: chocolate;
+}
+.borrar{
+  background-color: darkgoldenrod;
+}
+.editar:hover,.borrar:hover{
+  scale: 1.08;
+  background-color: beige;
+}
+.borrado{
+  padding: 1rem;
+  color: white;
+}
+.borrado p{
+  font-size: 1.4rem;
+}
+.borrado div input{
+  transition: all 0.5s;
+  width: 10rem;
+}
+.borrado div input:hover{
+  background-color: black;
+  color: white;
 }

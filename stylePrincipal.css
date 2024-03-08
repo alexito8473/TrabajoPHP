@@ -167,3 +167,12 @@ footer {
 footer p {
   font-size: calc(1rem + 1vw);
 }
+.borrar{
+  background-color: cornflowerblue;
+  border-color: transparent;
+}
+
+.borrar:hover{
+  background-color: white;
+  border-color: black;
+}

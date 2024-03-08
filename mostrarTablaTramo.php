@@ -41,7 +41,7 @@ if(count($resultado) == 0){
             <main>
                 <section class="anadir">
                     <form method="post" action="logicaOferta.php"><input type="submit" value="Añadir nuevo registro"></form>
-                    <form method="post" action="prinicpal.php"><input type="submit" value="Menu principal"></form>
+                    <form method="post" action="principal.php"><input type="submit" value="Menu principal"></form>
                 </section>
                 <section class="tabla">
                     <?php
@@ -74,7 +74,6 @@ if(count($resultado) == 0){
                                         <p>Horas totales</p><input type=\"number\" value=\"".$resultado[0]["horasTotales"]."\"  name=\"fechaLey\" min=\"0\" max=\"999\" required>
                                     </div>
                                     <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
-
                                     </form>";
                             } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
 

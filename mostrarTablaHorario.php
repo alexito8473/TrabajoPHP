@@ -33,7 +33,7 @@ if(count($resultado) == 0){
 <body>
     <header>
         <div>
-            <h1>Mostrar tabla asignatura</h1>
+            <h1>Mostrar tabla horario</h1>
         </div>
     </header>
     <div class="separador">
@@ -47,10 +47,10 @@ if(count($resultado) == 0){
                     <?php
                             try {
                                 $resultado = $database->select(
-                                    "asignatura",
+                                    "horario",
                                     "*"
                                 );
-                                mostrarTablaAsignatura($resultado);
+                                mostrarTablaHorario($resultado);
                             } catch (Exception) {
                                 echo "<br><h2><b>Fallo en la conexion con la base de datos</b></h2>";
                             }         
@@ -60,30 +60,65 @@ if(count($resultado) == 0){
                     <div>
                     <?php
                         if(!empty($_GET) && isset($_GET)){
+                            
                             if (!empty($_GET["editar"]) && isset($_GET["editar"])) {
                                 $resultado = $database->select(
-                                    "asignatura",
+                                    "horario",
                                     "*",
-                                    ["codAsig[=]" => $_GET["cod1"]]
+                                    ["codOe[=]" => $_GET["cod1"],
+                                    "fechaActa[=]" => $_GET["cod2"],
+                                    "codCurso[=]" => $_GET["cod3"],
+                                    "codAsig[=]" => $_GET["cod4"],
+                                    "codTramo[=]" => $_GET["cod5"]
+                                    ]
                                 );
-                                    echo "<form action=\"mostrarTablaHorario.php\" method=\"get\">
-                                    <input type=\"text\"  hidden=true value=\"".$resultado[0]["codAsig"]."\" name=\"cod1\">
+                                    echo "<form action=\"logicaEditarBorrarHorario.php\" method=\"get\">
                                     <div>
-                                        <p>Nombre</p><input type=\"text\" value=\"".$resultado[0]["nombre"]."\" name=\"nombre\" required>
+                                    <p>Codigo oferta</p><input type=\"text\" value=\"".$resultado[0]["codOe"]."\" name=\"cod1\" required>
                                     </div>
                                     <div>
-                                        <p>Horas semanales</p><input type=\"number\" value=\"".$resultado[0]["horasSemanales"]."\" name=\"descripcion\" min=\"0\" max=\"999\" required>
+                                        <p>Fecha Acta</p><input type=\"text\" value=\"".$resultado[0]["fechaActa"]."\" name=\"nombre\" required>
                                     </div>
                                     <div>
-                                        <p>Horas totales</p><input type=\"number\" value=\"".$resultado[0]["horasTotales"]."\"  name=\"fechaLey\" min=\"0\" max=\"999\" required>
+                                        <p>Código curso</p><input type=\"text\" value=\"".$resultado[0]["codCurso"]."\" name=\"descripcion\" required>
+                                    </div>
+                                    <div>
+                                    <p>Código de asignatura</p><input type=\"text\" value=\"".$resultado[0]["codAsig"]."\" name=\"descripcion\"  required>
+                                    </div>
+                                    <div>
+                                    <p>Código del tramo</p><input type=\"text\" value=\"".$resultado[0]["codTramo"]."\" name=\"descripcion\"  required>
                                     </div>
                                     <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
-
                                     </form>";
                             } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
-
+                                $resultado = $database->select(
+                                    "horario",
+                                    "*",
+                                    ["codOe[=]" => $_GET["cod1"],
+                                    "fechaActa[=]" => $_GET["cod2"],
+                                    "codCurso[=]" => $_GET["cod3"],
+                                    "codAsig[=]" => $_GET["cod4"],
+                                    "codTramo[=]" => $_GET["cod5"]
+                                    ]
+                                );
+                                echo "<div class=\"borrado\">";
+                                echo "<p>¿Quieres borrar?</p>";
+                                echo "<form action=\"logicaEditarBorrarHorario.php\" method=\"post\">
+                                <input type=\"text\" hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\">
+                                <input type=\"text\" hidden=true value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\" >
+                                <input type=\"text\" hidden=true value=\"".$resultado[0]["codCurso"]."\" name=\"cod3\">
+                                <input type=\"text\" hidden=true value=\"".$resultado[0]["codAsig"]."\"  name=\"cod4\">
+                                <input type=\"text\" hidden=true value=\"".$resultado[0]["codTramo"]."\"  name=\"cod5\">
+                                <div>
+                                <input type=\"submit\" name=\"si\" value=\"Si\">
+                                <input type=\"submit\" name=\"no\" value=\"No\">
+                                </div>
+                                </form>";
+                                echo "</div>";
                             }else{
-                              //  echo $_GET["mesaje"];
+                                if(!empty($_GET["mensaje"]) && isset($_GET["mensaje"])){
+                                    echo $_GET["mensaje"];
+                                }
                             }
                         }
                      ?>

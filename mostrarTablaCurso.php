@@ -65,7 +65,7 @@ if(count($resultado) == 0){
                                     "codCurso[=]" => $_GET["cod3"]]
                                 );
                                 $contadorProfesor = $database->select("profesor","*");
-                                    echo "<form action=\"mostrarTablaAsignatura.php\" method=\"get\">
+                                    echo "<form action=\"mostrarTablaCurso.php\" method=\"get\">
                                     <input type=\"text\"  hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\">
                                     <input type=\"text\"  hidden=true value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\">
                                     <input type=\"text\"  hidden=true value=\"".$resultado[0]["codCurso"]."\" name=\"cod3\">
@@ -84,7 +84,9 @@ if(count($resultado) == 0){
                             } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
 
                             }else{
-                              //  echo $_GET["mesaje"];
+                                if (!empty($_GET["mensaje"]) && isset($_GET["mensaje"])) {
+                                    echo $_GET["mensaje"];
+                                }
                             }
                         }
                      ?>
