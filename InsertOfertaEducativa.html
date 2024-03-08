@@ -1,29 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <link rel="stylesheet" href="styleform.css">
+    <meta charset="UTF-8">
+    <title>Registro Oferta educativa</title>
 </head>
 <body class="container">
+<header>
+    <div>
+        <h1>Registro Oferta</h1>
+    </div>
+</header>
+<main>
+    <section class="anadir">
+        <form method="post" action="logicaOferta.php">
+            <label for="codOE">Codigo OE:</label><br>
+            <input type="text" id="codOE" name="codOE" pattern="[A-Za-z]{3}"  maxlength="3"><br>
 
-<h1>Registro Oferta Educativa</h1>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre"><br>
 
-<form method="post" action="logicaOferta.php">
-    <label for="codOE">Codigo OE:</label><br>
-    <input type="text" id="codOE" name="codOE" pattern="[A-Za-z]{3}"  maxlength="3"><br>
+            <label for="descripcion">Descripcion:</label><br>
+            <input type="text" id="descripcion" name="descripcion"><br>
 
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre"><br>
+            <label>Elige grado:</label><br>
+            <input type="radio" id="cfgs" name="grado" value="CFGS">
+            <label for="cfgs">CFGS</label>
+            <input type="radio" id="cfgm" checked name="grado" value="CFGM">
+            <label for="cfgm">CFGM</label><br>
 
-    <label for="descripcion">Descripcion:</label><br>
-    <input type="text" id="descripcion" name="descripcion"><br>
-    <label>Elige grado:</label><br>
-    <input type="radio" id="cfgs" name="grado" value="CFGS">
-    <label for="cfgs">CFGS</label>
-    <input type="radio" id="cfgm" checked name="grado" value="CFGM">
-    <label for="cfgm">CFGM</label><br>
+            <input type="submit" value="Submit">
 
-    <input type="submit" value="Submit">
-</form>
-
+            <input type="button" value=" ir a Principal " class="borrar" onclick="location.href='principal.php'">
+            <input type="button" value="Mostrar tabla" class="borrar" onclick="location.href='mostrarTablaOferta.php'">
+        </form>
+    </section>
+</main>
+<footer>
+    <h3>Hecho por Alejandro Aguilar y Cristian Gil</h3>
+</footer>
 </body>
 </html>

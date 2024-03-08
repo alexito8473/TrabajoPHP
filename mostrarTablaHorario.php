@@ -19,7 +19,7 @@ if(isset($_SESSION["inicioSesion"])){
              ]);
 $resultado = $database->select("horario","*");
 if(count($resultado) == 0){
-    header("Location: error.php?tipoError=No hay registros, introduce alguno&destino=insertHorario.html");
+    header("Location: error.php?tipoError=No hay registros, introduce alguno&destino=insertHorario.php");
 }  
 ?>
 <!DOCTYPE html>

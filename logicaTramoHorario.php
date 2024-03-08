@@ -84,7 +84,7 @@ $database->insert('tramoHorario', [
     'dia' => $dia
 ]);
 
-header("Location: success.php?mensaje=Inserción correcta&destino=insertTramo.html");
+header("Location: success.php?mensaje=Se ha insertado correctamente el tramo&destino=insertTramo.html");
 exit;
 
 ?>

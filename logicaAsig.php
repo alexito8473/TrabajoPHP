@@ -38,7 +38,7 @@ if(!$asignatura) {
         'horasSemanales' => $horaSem,
         'horasTotales' => $horasTotal
     ]);
-    header("Location: success.php?mensaje=Insercion correcta&destino=insertAsig.html");    exit;
+    header("Location: success.php?mensaje=Se ha insertado correctamente la asignatura&destino=insertAsig.html");    exit;
 
 } else {
     header("Location: error.php?tipoError=Error de Inserción&destino=insertAsig.html");

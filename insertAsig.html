@@ -3,25 +3,48 @@
 <head>
     <link rel="stylesheet" href="styleform.css">
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="styleform.css">
+    <title>Registro Asignatura</title>
 </head>
-
 <body class="container">
-<h1>Registro Asignatura</h1>
-<form method="post" action="logicaAsig.php">
-    <label for="codAsig">Codigo Asignatura:</label><br>
-    <input type="text" id="codAsig" name="codAsig" maxlength="6" ><br>
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre"><br>
+<header>
+    <div>
+        <h1>Registro Asignatura</h1>
+    </div>
+</header>
+<main>
+    <section class="anadir">
+        <form method="post" action="logicaAsig.php">
+            <label for="codAsig">Codigo Asignatura:</label>
+            <br>
+            <input type="text" id="codAsig" name="codAsig" maxlength="6" class="editar">
+            <br>
 
-    <label for="horaSem">Horas semanales</label><br>
-    <input type="number" id="horaSem" name="horaSem" min="0" max="999"><br>
+            <label for="nombre">Nombre:</label>
+            <br>
+            <input type="text" id="nombre" name="nombre" class="editar">
+            <br>
 
-    <label for="horatot">Hora Totales:</label><br>
-    <input type="number" id="horatot" name="horatot" min="0" max="99999"><br>
+            <label for="horaSem">Horas semanales</label>
+            <br>
+            <input type="number" id="horaSem" name="horaSem" min="0" max="999" class="editar">
+            <br>
 
-    <input type="submit" value="Submit">
-</form>
+            <label for="horatot">Hora Totales:</label>
+            <br>
+            <input type="number" id="horatot" name="horatot" min="0" max="99999" class="editar">
+            <br>
+
+            <input type="submit" value="Submit" class="borrar">
+            <input type="button" value=" ir a Principal " class="borrar" onclick="location.href='principal.php'">
+            <input type="button" value="Mostrar tabla" class="borrar" onclick="location.href='mostrarTablaAsignatura.php'">
+
+        </form>
+    </section>
+
+
+</main>
+<footer>
+    <h3>Hecho por Alejandro Aguilar y Cristian Gil</h3>
+</footer>
 </body>
 </html>

@@ -1,38 +1,47 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleform.css">
-    <title>Formulario</title>
+    <meta charset="UTF-8">
+    <title>Registro de Profesores</title>
 </head>
 <body class="container">
+<header>
+    <div>
+        <h1>Registro de Profesores</h1>
+    </div>
+</header>
+<main>
+    <section class="anadir">
+        <form action="logicaprof.php" method="post">
+            <label for="cod_prof">Código de Profesor (Máximo 3 letras):</label><br>
+            <input type="text" id="cod_prof" name="cod_prof" pattern="[A-Za-z]{3}"  maxlength="3" required>
 
-<h1>Insertar profesor</h1>
+            <br>
 
-<form action="logicaprof.php" method="post">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required>
 
-        <label for="cod_prof">Código de Profesor (Máximo 3 letras):</label><br>
-        <input type="text" id="cod_prof" name="cod_prof" pattern="[A-Za-z]{3}"  maxlength="3" required>
+            <br>
 
-    <br>
+            <label for="apellido">Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido" required>
 
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" required>
+            <br>
 
-    <br>
+            <label for="fecha_nacimiento">Fecha de Alta:</label><br>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
 
-        <label for="apellido">Apellido:</label><br>
-        <input type="text" id="apellido" name="apellido" required>
+            <br>
+            <input type="submit" value="Enviar">
 
-    <br>
-
-        <label for="fecha_nacimiento">Fecha de Alta:</label><br>
-        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
-
-    <br>
-    <input type="submit" value="Enviar">
-</form>
-
+            <input type="button" value=" ir a Principal " class="borrar" onclick="location.href='principal.php'">
+            <input type="button" value="Mostrar tabla" class="borrar" onclick="location.href='mostrarTablaProfesor.php'">
+        </form>
+    </section>
+</main>
+<footer>
+    <h3>Hecho por Alejandro Aguilar y Cristian Gil</h3>
+</footer>
 </body>
 </html>

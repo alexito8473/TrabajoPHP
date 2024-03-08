@@ -57,8 +57,8 @@ if(isset($_SESSION["inicioSesion"])){
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">
-                        <form action="insertCurso.html" method="get"><input class="saltar" type="submit"
-                                name="añadirOferta" value="Añadir"></form>
+                        <form action="insertCurso.php" method="get"><input class="saltar" type="submit"
+                                                                           name="añadirOferta" value="Añadir"></form>
                     </div>
                 </section>
                 <section class="seccion">
@@ -96,8 +96,8 @@ if(isset($_SESSION["inicioSesion"])){
                                 name="verOferta" value="Ver"></form>
                     </div>
                     <div class="form2">
-                        <form action="insertHorario.html" method="get"><input class="saltar" type="submit"
-                                name="añadirOferta" value="Añadir"></form>
+                        <form action="insertHorario.php" method="get"><input class="saltar" type="submit"
+                                                                             name="añadirOferta" value="Añadir"></form>
                     </div>
                 </section>
                 <section class="seccion">

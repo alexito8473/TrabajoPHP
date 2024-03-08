@@ -27,7 +27,7 @@ $fechaActa = $database->select('curso', 'fechaActa', [
     'codCurso' => $codCurso
 ])[0];
 if(empty($codOe) || empty($codCurso) || empty($codAsig) || empty($codTramo)) {
-    header('Location: error.php?tipoError=Campos Vacios&destino=insertHorario.html');
+    header('Location: error.php?tipoError=Campos Vacios&destino=insertHorario.php');
     exit();
 }
 
@@ -36,7 +36,7 @@ $codOeExists = $database->has('ofertaEducativa', [
 ]);
 
 if (!$codOeExists) {
-    header('Location: error.php?tipoError=Código OE no existe&destino=insertHorario.html');
+    header('Location: error.php?tipoError=Código OE no existe&destino=insertHorario.php');
     exit();
 }
 
@@ -45,7 +45,7 @@ $codCursoExists = $database->has('curso', [
 ]);
 
 if (!$codCursoExists) {
-    header('Location: error.php?tipoError=Código Curso no existe&destino=insertHorario.html');
+    header('Location: error.php?tipoError=Código Curso no existe&destino=insertHorario.php');
     exit();
 }
 
@@ -54,7 +54,7 @@ $codAsigExists = $database->has('asignatura', [
 ]);
 
 if (!$codAsigExists) {
-    header('Location: error.php?tipoError=Código Asignatura no existe&destino=insertHorario.html');
+    header('Location: error.php?tipoError=Código Asignatura no existe&destino=insertHorario.php');
     exit();
 }
 
@@ -63,7 +63,7 @@ $codTramoExists = $database->has('tramoHorario', [
 ]);
 
 if (!$codTramoExists) {
-    header('Location: error.php?tipoError=Código Tramo no existe&destino=insertHorario.html');
+    header('Location: error.php?tipoError=Código Tramo no existe&destino=insertHorario.php');
     exit();
 }
 
@@ -74,7 +74,7 @@ $tramoHorarioExists = $database->has('horario', [
 ]);
 
 if ($tramoHorarioExists) {
-    header('Location: error.php?tipoError=Tramo horario ya asignado en el mismo curso&destino=insertHorario.html');
+    header('Location: error.php?tipoError=Tramo horario ya asignado en el mismo curso&destino=insertHorario.php');
     exit();
 }
 
@@ -86,5 +86,5 @@ $database->insert('horario', [
     'fechaActa' => $fechaActa
 ]);
 
-header("Location: success.php?mensaje=Horario insertado correctamente&destino=insertHorario.html");
+header("Location: success.php?mensaje=Se ha insertado correctamente el horario&destino=insertHorario.php");
 exit();

@@ -3,28 +3,46 @@
 <head>
     <link rel="stylesheet" href="styleform.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Registro Tramo</title>
 </head>
-
 <body class="container">
-<h1>Registro Tramo</h1>
-<form method="post" action="logicaTramoHorario.php">
-    <label for="codTramo">Código de Tramo (1-6):</label><br>
-    <input type="number" id="codTramo" name="codTramo" min="1" max="6" required><br>
+<header>
+    <div>
+        <h1>Registro Tramo</h1>
+    </div>
+</header>
+<main>
+    <section class="anadir">
+        <form method="post" action="logicaTramoHorario.php">
+            <label for="codTramo">Código de Tramo (1-6):</label><br>
+            <select id="codTramo" name="codTramo" required>
+                <option value="">Selecciona un tramo</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select><br>
+            <label for="dia">Día:</label><br>
+            <select id="dia" name="dia" required>
+                <option value="">Seleccione un día</option>
+                <option value="LUNES">Lunes</option>
+                <option value="MARTES">Martes</option>
+                <option value="MIERCOLES">Miércoles</option>
+                <option value="JUEVES">Jueves</option>
+                <option value="VIernes">Viernes</option>
+            </select><br>
 
+            <input type="submit" value="Submit">
 
-
-    <label for="dia">Día:</label><br>
-    <select id="dia" name="dia" required>
-        <option value="">Seleccione un día</option>
-        <option value="LUNES">Lunes</option>
-        <option value="MARTES">Martes</option>
-        <option value="MIERCOLES">Miércoles</option>
-        <option value="JUEVES">Jueves</option>
-        <option value="VIernes">Viernes</option>
-    </select><br>
-
-    <input type="submit" value="Submit">
-</form>
+            <input type="button" value=" ir a Principal " class="borrar" onclick="location.href='principal.php'">
+            <input type="button" value="Mostrar tabla" class="borrar" onclick="location.href='mostrarTablaTramo.php'">
+        </form>
+    </section>
+</main>
+<footer>
+    <h3>Hecho por Alejandro Aguilar y Cristian Gil</h3>
+</footer>
 </body>
 </html>

@@ -1,64 +1,123 @@
-html,input{
-    background: #080710;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
+    background-color: #080710;
+    color: #333;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: #387afc;
+    color: #fff;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.container h1 {
-    text-align: center;
-    color: white;
-}
-.container form select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    color: white;
-    box-sizing: border-box;
-    border: 1px solid rgba(8, 7, 16, 0.6);
-    border-radius: 4px;
-    background: #080710;
-}
-
-.container {
-    width: 100%;
-}
-
-.container form {
+main {
     background-color: rgba(255, 255, 255, 0.13);
-    color: #1845ad;
-    padding: 20px;
-    font-size: 16px;
-    border-radius: 17px;
-    width: 60%;
+    height: 99vh;
+    width: 95vw;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2vh;
+    margin: 2vh 0;
 }
 
-.container form input[type=text],.container form input[type=date],.container form input[type=number] {
+.anadir input {
+    margin: 1vh 0;
+    padding: 0.5vh;
+    background-color: #e5e5e5;
+    border-radius: 2em;
+    font-size: 1.5vw;
+    width: 50vw;
+    max-width: 350px;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    border-radius: 30rem;
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    color: white;
-    box-sizing: border-box;
-    border: 1px solid rgba(8, 7, 16, 0.6);
-    border-radius: 4px;
+    height: 10vh;
+    background-color: #387afc;
+    color: #fff;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
 }
 
-.container form input[type=submit] {
-    background-color: #1845ad;
+label{
     color: white;
-    border: none;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 10px;
+}
+input[type=submit], input[type=button] {
+    background-color: #2f2fc5;
+    color: #fff;
+    border-color: transparent;
+    transition: all 1.3s;
+    width: fit-content;
+    min-width: 120px;
+    font-size: calc(6px + 1vmin);
+    padding: 1vh 2vw;
+    border-radius: 1em;
+    margin: 1vh auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type='radio'] {
+    margin: 15px 5px;
+    width: 20px;
+    height: 20px;
 }
 
-.container form input[type=submit]:hover {
-background: #f09819   ;
-    transition: background-color 0.3s ease;
+input[type='radio']:checked {
+    background-color: #4CAF50;
+}
+input[type='date'] {
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     background-color: #f9f9f9;
+ }
 
+input[type='date']:focus {
+    border: 1px solid #4CAF50;
+    outline: none;
+}
+select {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 16px;
+}
+input[type="submit"]:hover, .borrar:hover {
+    background-color: black; /* Nuevo color de fondo */
+    color: #2f2fc5 ; /* Nuevo color de letra */
+    transition: background-color 0.4s ease, color 0.4s ease;
+
+}
+select:focus {
+    border: 1px solid #4CAF50;
+    outline: none;
 }

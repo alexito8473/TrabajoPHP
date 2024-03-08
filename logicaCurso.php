@@ -22,7 +22,7 @@ $database = new Medoo([
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!isset($_POST['codOe'], $_POST['codcurso'], $_POST['codtutor']) ||
         empty($_POST['codOe']) || empty($_POST['codcurso']) || empty($_POST['codtutor'])) {
-        header("Location: error.php?tipoError=Todos los campos son requeridos&destino=insertCurso.html");
+        header("Location: error.php?tipoError=Todos los campos son requeridos&destino=insertCurso.php");
         exit;
     }
 
@@ -30,17 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $codcurso = $_POST['codcurso'];
     $codtutor = $_POST['codtutor'];
 if ($database->count('curso', ['codtutor' => $codtutor]) > 0) {
-    header("Location: error.php?tipoError=Este profesor ya es tutor de un curso&destino=insertCurso.html");
+    header("Location: error.php?tipoError=Este profesor ya es tutor de un curso&destino=insertCurso.php");
     exit;
 }
     if ($database->has('curso', ['codcurso' => $codcurso])) {
-        header("Location: error.php?tipoError=El curso ya existe en la base de datos&destino=insertCurso.html");
+        header("Location: error.php?tipoError=El curso ya existe en la base de datos&destino=insertCurso.php");
         exit;
     } else if (!$database->has('profesor', ['codprof' => $codtutor])) {
-        header("Location: error.php?tipoError=El tutor no existe en la base de datos&destino=insertCurso.html");
+        header("Location: error.php?tipoError=El tutor no existe en la base de datos&destino=insertCurso.php");
         exit;
     } elseif (!$database->has('ofertaeducativa', ['codOe' => $codOe])) {
-        header("Location: error.php?tipoError=La oferta educativa no existe en la base de datos&destino=insertCurso.html");
+        header("Location: error.php?tipoError=La oferta educativa no existe en la base de datos&destino=insertCurso.php");
         exit;
     } else {
         $fechaacta = $database->get('ofertaeducativa', 'fechaacta', ['codOe' => $codOe]);
@@ -53,10 +53,10 @@ if ($database->count('curso', ['codtutor' => $codtutor]) > 0) {
         ]);
 
         if ($id) {
-            header("Location: success.php?mensaje=Se ha insertado correctamente en BD&destino=insertCurso.html");
+            header("Location: success.php?mensaje=Se ha insertado correctamente el curso&destino=insertCurso.php");
             exit;
         } else {
-            header("Location: error.php?tipoError=Error: Ese tutor está duplicado&destino=insertCurso.html");
+            header("Location: error.php?tipoError=Error: Ese tutor está duplicado&destino=insertCurso.php");
             exit;
         }
     }

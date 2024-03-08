@@ -44,7 +44,7 @@ if (isset($_REQUEST['cod_prof'], $_REQUEST['nombre'], $_REQUEST['apellido'], $_R
 
         $database->insert('profesor', $datos_insertar);
 
-        header("Location: success.php?mensaje=Datos insertados correctamente&destino=insertProf.html");
+        header("Location: success.php?mensaje=Se ha insertado correctamente el profesor&destino=insertProf.html");
         exit;
     }
 } else {

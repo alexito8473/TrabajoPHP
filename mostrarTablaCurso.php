@@ -19,7 +19,7 @@ if(isset($_SESSION["inicioSesion"])){
              ]);
 $resultado = $database->select("curso","*");
 if(count($resultado) == 0){
-    header("Location: error.php?tipoError=No hay registros, introduce alguno&destino=insertCurso.html");
+    header("Location: error.php?tipoError=No hay registros, introduce alguno&destino=insertCurso.php");
 }  
 ?>
 <!DOCTYPE html>
