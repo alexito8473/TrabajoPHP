@@ -14,10 +14,8 @@ if (!empty($_POST) && isset($_POST)) {
         $database->update("asignatura", 
         ["nombre" => $_POST["cod2"],
         "horasSemanales" => $_POST["cod3"],
-        "horasTotales" => $_POST["cod4"]
-        ], 
-        ["codAsig[=]" => $_POST["cod1"]
-        ]);
+        "horasTotales" => $_POST["cod4"]], 
+        ["codAsig[=]" => $_POST["cod1"]]);
         header('Location: mostrarTablaAsignatura.php?mensaje=Actualizado con exito');
     }else{
         if (!empty($_POST["si"]) && isset($_POST["si"])) {
