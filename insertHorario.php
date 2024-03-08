@@ -64,7 +64,7 @@ if (empty($tramos)) {
             <label for="codTramo">Código de Tramo:</label><br>
             <input type="text" id="codTramo" name="codTramo" maxlength="2" required>
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Enviar">
 
             <input type="button" value=" ir a Principal " class="borrar" onclick="location.href='principal.php'">
             <input type="button" value="Mostrar tabla" class="borrar" onclick="location.href='mostrarTablaHorario.php'">
