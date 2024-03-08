@@ -56,7 +56,7 @@ if(count($resultado) == 0){
                     <div>
                     <?php
                         if(!empty($_GET) && isset($_GET)){
-                            if (!empty($_GET["editar"]) && isset($_GET["editar"])) {
+                            if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
                                 $resultado = $database->select(
                                     "curso",
                                     "*",
@@ -64,28 +64,25 @@ if(count($resultado) == 0){
                                     "fechaActa[=]" => $_GET["cod2"],
                                     "codCurso[=]" => $_GET["cod3"]]
                                 );
-                                $contadorProfesor = $database->select("profesor","*");
-                                    echo "<form action=\"mostrarTablaCurso.php\" method=\"get\">
-                                    <input type=\"text\"  hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\">
-                                    <input type=\"text\"  hidden=true value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\">
-                                    <input type=\"text\"  hidden=true value=\"".$resultado[0]["codCurso"]."\" name=\"cod3\">
-                                    <div>
-                                        <p>Tutor</p>
-                                        <select name=\"tutor\" size=\"1\">";
-                                    for($i=0;$i<count($contadorProfesor);$i++){
-                                        echo "<option value=\"".$contadorProfesor[$i]["codProf"]."\">".$contadorProfesor[$i]["codProf"]."</option>";
-                                    }   
-                                        echo "</select>
-                                    </div>
-                                  
-                                    <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
-
-                                    </form>";
-                            } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
-
+                                echo "<div class=\"borrado\">";
+                                echo "<p>¿Quieres borrar?</p>";
+                                echo "<form action=\"logicaEditarBorrarCurso.php\" method=\"post\">
+                                <input type=\"text\"  hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\">
+                                <input type=\"text\"  hidden=true value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\">
+                                <input type=\"text\"  hidden=true value=\"".$resultado[0]["codCurso"]."\" name=\"cod3\">
+                                <div>
+                                <input type=\"submit\" name=\"si\" value=\"Si\">
+                                <input type=\"submit\" name=\"no\" value=\"No\">
+                                </div>
+                                </form>";
+                                echo "</div>";
                             }else{
-                                if (!empty($_GET["mensaje"]) && isset($_GET["mensaje"])) {
+                                if(!empty($_GET["mensaje"]) && isset($_GET["mensaje"])){
+                                    echo "<div class=\"frase\">";
+                                    echo "<p>";
                                     echo $_GET["mensaje"];
+                                    echo "</p>";
+                                    echo "</div>";
                                 }
                             }
                         }

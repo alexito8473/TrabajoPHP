@@ -46,15 +46,11 @@ if(count($resultado) == 0){
                 </section>
                 <section class="tabla">
                     <?php
-                            try {
-                                $resultado = $database->select(
-                                    "ofertaeducativa",
-                                    "*"
-                                );
-                                mostrarTablaOferta($resultado);
-                            } catch (Exception) {
-                                echo "<br><h2><b>Fallo en la conexion con la base de datos</b></h2>";
-                            }         
+                        try {
+                            mostrarTablaOferta($resultado);
+                        } catch (Exception) {
+                            echo "<br><h2><b>Fallo en la conexion con la base de datos</b></h2>";
+                        }         
                      ?>
                 </section>
                 <section class="Mostrar">
@@ -62,57 +58,68 @@ if(count($resultado) == 0){
                     <?php
                         if(!empty($_GET) && isset($_GET)){
                             if (!empty($_GET["editar"]) && isset($_GET["editar"])) {
+                                $resultado = $database->select("ofertaeducativa","*",["codOe[=]" => $_GET["cod1"],"fechaActa[=]"=>$_GET["cod2"]]);
+                                echo "<form action=\"logicaEditarBorrarOferta.php\" method=\"post\">
+                                <input type=\"text\" hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\">
+                                <input hidden=true type=\"text\" value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\">
+                                <div>
+                                    <p>Nombre</p><input type=\"text\" value=\"".$resultado[0]["nombre"]."\" name=\"cod3\" required>
+                                </div>
+                                <div>
+                                    <p>Descripcion</p><input type=\"text\" value=\"".$resultado[0]["descripcion"]."\" name=\"cod4\" required>
+                                </div>
+                                <div>
+                                <p>Tipo</p><div>";
+                                if($resultado[0]["tipo"]=="CFGS"){
+                                    echo "<div><input checked type=\"radio\" name=\"cod5\" value=\"CFGS\" /><p>CFGS</p></div>
+                                    <div><input type=\"radio\" name=\"cod5\" value=\"CFGM\" /><p>CFGM</p></div>
+                                </div>";
+                                }else{
+                                    echo "<div><input type=\"radio\" name=\"cod5\" value=\"CFGS\" /><p>CFGS</p></div>
+                                    <div><input checked type=\"radio\" name=\"cod5\" value=\"CFGM\" /><p>CFGM</p></div>
+                                </div>";
+                                }
+                                echo"</div><div>
+                                    <p>Fecha Ley</p><input type=\"text\" value=\"".$resultado[0]["fechaLey"]."\"  name=\"cod6\" required>
+                                </div>
+                                <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
+                                </form>";
+                            } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
                                 $resultado = $database->select(
                                     "ofertaeducativa",
                                     "*",
-                                    ["codOe[=]" => $_GET["cod1"],"fechaActa[=]"=>$_GET["cod2"]]
+                                    ["codOe[=]" => $_GET["cod1"]]
                                 );
-                                    echo "<form action=\"mostrarTablaOferta.php\" method=\"get\">
-                                    <input type=\"text\"  hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\" required>
-                                    <input hidden=true type=\"text\" value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\" pattern=\"[A-Za-z]{3}\"  maxlength=\"3\" required>
-                                    <div>
-                                        <p>Nombre</p><input type=\"text\" value=\"".$resultado[0]["nombre"]."\" name=\"nombre\" required>
-                                    </div>
-                                    <div>
-                                        <p>Descripcion</p><input type=\"text\" value=\"".$resultado[0]["descripcion"]."\" name=\"descripcion\" required>
-                                    </div>
-                                    <div>
-                                    <p>Tipo</p><div>";
-                                    if($resultado[0]["tipo"]=="CFGS"){
-                                        echo "<div><input checked type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
-                                        <div><input type=\"radio\" name=\"tipo\" value=\"CFGM\" /><p>CFGM</p></div>
-                                    </div>";
-                                    }else{
-                                        echo "<div><input type=\"radio\" name=\"tipo\" value=\"CFGS\" /><p>CFGS</p></div>
-                                        <div><input checked type=\"radio\" name=\"tipo\" value=\"CFGM\" /><p>CFGM</p></div>
-                                    </div>";
-                                    }
-                                    echo"</div><div>
-                                        <p>Fecha Ley</p><input type=\"text\" value=\"".$resultado[0]["fechaLey"]."\"  name=\"fechaLey\" required>
-                                    </div>
-                                    <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
-
-                                    </form>";
-                            } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
-
+                                echo "<div class=\"borrado\">";
+                                echo "<p>¿Quieres borrar?</p>";
+                                echo "<form action=\"logicaEditarBorrarOferta.php\" method=\"post\">
+                                <input type=\"text\" hidden=true value=\"".$resultado[0]["codOe"]."\" name=\"cod1\">                          
+                                <div>
+                                    <input type=\"submit\" name=\"si\" value=\"Si\">
+                                    <input type=\"submit\" name=\"no\" value=\"No\">
+                                </div>
+                                </form>";
+                                echo "</div>";
                             }else{
-                              //  echo $_GET["mesaje"];
+                                if(!empty($_GET["mensaje"]) && isset($_GET["mensaje"])){
+                                    echo "<div class=\"frase\">";
+                                    echo "<p>";
+                                    echo $_GET["mensaje"];
+                                    echo "</p>";
+                                    echo "</div>";
+                                }
                             }
                         }
                      ?>
                      </div>
                 </section>
             </main>
-
         </div>
         <footer>
                 <p>Hecho por Alejandro Aguilar y Cristian Gil</p>
     </footer>
     </div>
     <div>
-
     </div>
- 
 </body>
-
 </html>

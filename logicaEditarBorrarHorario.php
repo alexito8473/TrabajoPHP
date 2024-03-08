@@ -83,7 +83,7 @@ if (!empty($_POST) && isset($_POST)) {
                 "codTramo[=]" => $_POST["cod5"]
                 ]
             );
-            header("Location: mostrarTablaHorario.php");
+            header('Location: mostrarTablaHorario.php?mensaje=Borrado con exito');
         }else if(!empty($_POST["no"]) && isset($_POST["no"])){
             header("Location: mostrarTablaHorario.php");
         }else{

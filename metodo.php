@@ -266,9 +266,6 @@ function mostrarTablaCurso($resultado){
     echo "Código del tutor";
     echo "</th>";
     echo "<th>";
-    echo "Editar";
-    echo "</th>";
-    echo "<th>";
     echo "Borrar";
     echo "</th>";
     echo "</tr>";
@@ -293,14 +290,6 @@ function mostrarTablaCurso($resultado){
         echo "<p>";
         echo $row["codTutor"];
         echo "</p>";
-        echo "</td>";
-        echo "<td>";        
-        echo "<form action=\"mostrarTablaCurso.php\" method=\"get\">
-        <input type=\"text\" hidden=\"true\" value=\"".$row["codOe"]."\" name=\"cod1\">
-        <input type=\"text\" hidden=\"true\" value=\"".$row["fechaActa"]."\" name=\"cod2\">
-        <input type=\"text\" hidden=\"true\" value=\"".$row["codCurso"]."\" name=\"cod3\">
-        <input class=\"editar\" type=\"submit\" name=\"editar\" value=\"Editar\">
-        </form>";
         echo "</td>";
         echo "<td>";        
         echo "<form action=\"mostrarTablaCurso.php\" method=\"get\">
