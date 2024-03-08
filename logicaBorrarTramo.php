@@ -11,11 +11,7 @@ $database = new Medoo([
 
 if (!empty($_POST) && isset($_POST)) {
         if (!empty($_POST["si"]) && isset($_POST["si"])) {
-            $resultado=$database->delete(
-                "tramohorario",
-                ["codTramo[=]" => $_POST["cod1"],
-                ]
-            );
+            $resultado=$database->delete("tramohorario",["codTramo[=]" => $_POST["cod1"]]);
             header("Location: mostrarTablaTramo.php");
         }else if(!empty($_POST["no"]) && isset($_POST["no"])){
             header("Location: mostrarTablaTramo.php");
