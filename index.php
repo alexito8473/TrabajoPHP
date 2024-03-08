@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION["inicioSesion"])){
+    if($_SESSION["inicioSesion"]){
+        header("Location: principal.php");
+    }
+}else{
+    $_SESSION["inicioSesion"]=false;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -72,22 +72,27 @@ if(count($resultado) == 0){
                                     "codTramo[=]" => $_GET["cod5"]
                                     ]
                                 );
-                                    echo "<form action=\"logicaEditarBorrarHorario.php\" method=\"get\">
+                                    echo "<form action=\"logicaEditarBorrarHorario.php\" method=\"post\">
                                     <div>
                                     <p>Codigo oferta</p><input type=\"text\" value=\"".$resultado[0]["codOe"]."\" name=\"cod1\" required>
                                     </div>
                                     <div>
-                                        <p>Fecha Acta</p><input type=\"text\" value=\"".$resultado[0]["fechaActa"]."\" name=\"nombre\" required>
+                                        <p>Fecha Acta</p><input type=\"text\" value=\"".$resultado[0]["fechaActa"]."\" name=\"cod2\" required>
                                     </div>
                                     <div>
-                                        <p>Código curso</p><input type=\"text\" value=\"".$resultado[0]["codCurso"]."\" name=\"descripcion\" required>
+                                        <p>Código curso</p><input type=\"text\" value=\"".$resultado[0]["codCurso"]."\" name=\"cod3\" required>
                                     </div>
                                     <div>
-                                    <p>Código de asignatura</p><input type=\"text\" value=\"".$resultado[0]["codAsig"]."\" name=\"descripcion\"  required>
+                                    <p>Código de asignatura</p><input type=\"text\" value=\"".$resultado[0]["codAsig"]."\" name=\"cod4\"  required>
                                     </div>
                                     <div>
-                                    <p>Código del tramo</p><input type=\"text\" value=\"".$resultado[0]["codTramo"]."\" name=\"descripcion\"  required>
+                                    <p>Código del tramo</p><input type=\"text\" value=\"".$resultado[0]["codTramo"]."\" name=\"cod5\"  required>
                                     </div>
+                                    <input hidden=true type=\"text\" value=\"".$resultado[0]["codOe"]."\" name=\"cod6\" >
+                                    <input hidden=true type=\"text\" value=\"".$resultado[0]["fechaActa"]."\" name=\"cod7\" >
+                                    <input hidden=true type=\"text\" value=\"".$resultado[0]["codCurso"]."\" name=\"cod8\" >
+                                    <input hidden=true type=\"text\" value=\"".$resultado[0]["codAsig"]."\" name=\"cod9\"  >
+                                    <input hidden=true type=\"text\" value=\"".$resultado[0]["codTramo"]."\" name=\"cod10\"  >
                                     <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
                                     </form>";
                             } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
@@ -117,7 +122,11 @@ if(count($resultado) == 0){
                                 echo "</div>";
                             }else{
                                 if(!empty($_GET["mensaje"]) && isset($_GET["mensaje"])){
+                                    echo "<div class=\"frase\">";
+                                    echo "<p>";
                                     echo $_GET["mensaje"];
+                                    echo "</p>";
+                                    echo "</div>";
                                 }
                             }
                         }

@@ -145,13 +145,13 @@ function mostrarTablaAsignatura($resultado){
     echo "Código asignatura";
     echo "</th>";
     echo "<th>";
-    echo "horario inicio";
+    echo "Nombre";
     echo "</th>";
     echo "<th>";
-    echo "Horas fin";
+    echo "Horas semanales";
     echo "</th>";
     echo "<th>";
-    echo "Dia";
+    echo "Horas totales";
     echo "</th>";
     echo "<th>";
     echo "Editar";

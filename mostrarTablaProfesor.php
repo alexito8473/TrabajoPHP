@@ -40,7 +40,7 @@ if(count($resultado) == 0){
         <div class="container">
             <main>
                 <section class="anadir">
-                    <form method="post" action="logicaOferta.php"><input type="submit" value="Añadir nuevo registro"></form>
+                    <form method="post" action="insertProf.html"><input type="submit" value="Añadir nuevo registro"></form>
                     <form method="post" action="principal.php"><input type="submit" value="Menu principal"></form>
                 </section>
                 <section class="tabla">
@@ -69,16 +69,15 @@ if(count($resultado) == 0){
                                     echo "<form action=\"mostrarTablaProfesor.php\" method=\"get\">
                                     <input type=\"text\"  hidden=true value=\"".$resultado[0]["codProf"]."\" name=\"cod1\">
                                     <div>
-                                        <p>Nombre</p><input type=\"text\" value=\"".$resultado[0]["nombre"]."\" name=\"nombre\" required>
+                                        <p>Nombre</p><input type=\"text\" value=\"".$resultado[0]["nombre"]."\" name=\"cod2\" required>
                                     </div>
                                     <div>
-                                        <p>Apellidos</p><input type=\"text\" value=\"".$resultado[0]["apellidos"]."\" name=\"descripcion\" required>
+                                        <p>Apellidos</p><input type=\"text\" value=\"".$resultado[0]["apellidos"]."\" name=\"cod3\" required>
                                     </div>
                                     <div>
-                                        <p>Fecha Alta</p><input type=\"date\" value=\"".$resultado[0]["fechaAlta"]."\"  name=\"fechaLey\" required>
+                                        <p>Fecha Alta</p><input type=\"date\" value=\"".$resultado[0]["fechaAlta"]."\"  name=\"cod4\" required>
                                     </div>
                                     <div><input class=\"actu\" type=\"submit\" name=\"actualizar\" value=\"Actualizar\"></div>
-
                                     </form>";
                             } else if(!empty($_GET["borrar"]) && isset($_GET["borrar"])){
 

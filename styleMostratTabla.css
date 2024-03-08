@@ -111,7 +111,7 @@ footer p {
 .Mostrar div{
 transition: all 0.5s;
 }
-.Mostrar div:hover{
+.Mostrar div:nth-child(1):hover{
   scale: 1.1;
 }
 .Mostrar div{
@@ -193,4 +193,17 @@ transition: all 0.5s;
 .borrado div input:hover{
   background-color: black;
   color: white;
+}
+select{
+
+  margin-top: 0.2em;
+  padding: 0.4rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 0.6em;
+}
+.frase{
+font-size: 2rem;
+color: white;
+padding: 1rem;
 }
