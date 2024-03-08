@@ -14,19 +14,17 @@ if (!empty($_POST) && isset($_POST)) {
         $database->update("asignatura", 
         ["nombre" => $_POST["cod2"],
         "horasSemanales" => $_POST["cod3"],
-        "horasTotales" => $_POST["cod4"]
-        ], 
-        ["codAsig[=]" => $_POST["cod1"]
-        ]);
+        "horasTotales" => $_POST["cod4"]], 
+        ["codAsig[=]" => $_POST["cod1"]]);
         header('Location: mostrarTablaAsignatura.php?mensaje=Actualizado con exito');
     }else{
         if (!empty($_POST["si"]) && isset($_POST["si"])) {
             $resultado=$database->delete("asignatura",["codAsig[=]" => $_POST["cod1"]]);
-            header("Location: mostrarTablaAsignatura.php");
+            header('Location: mostrarTablaAsignatura.php?mensaje=Borrado con exito');
         }else if(!empty($_POST["no"]) && isset($_POST["no"])){
             header("Location: mostrarTablaAsignatura.php");
         }
     }
 }
-    header("Location: index.php");
+header("Location: index.php");
 ?>
